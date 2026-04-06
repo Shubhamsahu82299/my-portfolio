@@ -40,7 +40,7 @@ const Navbar = () => {
         {/* Desktop Resume Button & Contact Action */}
         <div className="hidden md:flex items-center gap-4">
           <a 
-            href="/resume.pdf" 
+            href="resume.pdf" 
             download="Shubham_Sahu_Resume.pdf"
             target="_blank"
             rel="noreferrer"
@@ -70,29 +70,35 @@ const Navbar = () => {
 
       {/* Mobile Menu Dropdown */}
       <div className={`md:hidden absolute top-full left-0 w-full bg-slate-900 border-b border-white/10 transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5 pointer-events-none'}`}>
-        <div className="px-6 py-8 flex flex-col gap-6 shadow-2xl">
-          {navLinks.map((link) => (
-            <a 
-              key={link.label} 
-              href={link.href} 
-              onClick={() => setIsOpen(false)}
-              className="flex items-center gap-4 text-gray-300 text-lg font-medium hover:text-blue-400 transition-colors"
-            >
-              <span className="text-blue-500">{link.icon}</span>
-              {link.label}
-            </a>
-          ))}
-          <hr className="border-white/10" />
-          
-          {/* Mobile Resume Download Button */}
-          <a 
-            href="/resume.pdf" 
-            download="Shubham_Sahu_Resume.pdf"
-            className="w-full bg-blue-600 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform"
-          >
-            <FileText size={18} /> Download Resume
-          </a>
-        </div>
+       <div className={`md:hidden absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-2xl border-b border-white/10 transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5 pointer-events-none'}`}>
+  <div className="px-5 py-7 flex flex-col gap-5 shadow-2xl">
+    {navLinks.map((link) => (
+      <a 
+        key={link.label} 
+        href={link.href} 
+        onClick={() => setIsOpen(false)}
+        className="flex items-center gap-4 text-gray-300 text-base font-semibold hover:text-blue-400 transition-colors p-2 rounded-lg hover:bg-white/5"
+      >
+        <span className="text-blue-500 bg-blue-500/10 p-2 rounded-lg">
+          {/* React Icons ya Lucide icons yahan auto-fit honge */}
+          {React.cloneElement(link.icon, { size: 20 })}
+        </span>
+        {link.label}
+      </a>
+    ))}
+    
+    <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-2" />
+    
+    {/* Mobile Resume Download Button - Bulletproof Path */}
+    <a 
+      href={`${import.meta.env.BASE_URL}resume.pdf`} // Ye GitHub Pages par kabhi fail nahi hoga
+      download="Shubham_Sahu_Resume.pdf"
+      className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-all shadow-lg shadow-blue-600/20"
+    >
+      <FileText size={20} /> Download Resume
+    </a>
+  </div>
+</div>
       </div>
     </nav>
   );

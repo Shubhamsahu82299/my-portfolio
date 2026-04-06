@@ -14,7 +14,12 @@ const Hero = () => {
     { name: "PHP", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg", pos: "bottom-1/4 left-0 md:-left-4", delay: 1.0 },
     { name: "C++", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg", pos: "top-[-20px] left-1/4 md:top-15", delay: 1.2 },
   ];
-
+const scrollToProjects = () => {
+  const element = document.getElementById('projects');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden bg-[#030712]">
       
@@ -65,10 +70,12 @@ const Hero = () => {
             transition={{ delay: 0.5 }}
             className="flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-5 w-full"
           >
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 md:px-10 md:py-4 rounded-full font-bold transition-all flex items-center gap-3 shadow-xl active:scale-95 group text-sm md:text-base">
-              My Projects 
-              <FaArrowRight className="group-hover:translate-x-1.5 transition-transform" />
-            </button>
+           <a href="#projects" className="w-full sm:w-auto">
+  <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 md:px-10 md:py-4 rounded-full font-bold transition-all flex items-center justify-center gap-3 shadow-xl active:scale-95 group text-sm md:text-base">
+    My Projects 
+    <FaArrowRight className="group-hover:translate-x-1.5 transition-transform" />
+  </button>
+</a>
             <div className="flex items-center gap-6 text-gray-500 pt-2 sm:pt-0">
               <a href="https://github.com/Shubhamsahu82299" target="_blank" rel="noreferrer" className="hover:text-white transition-all transform hover:scale-110"><FaGithub size={24} className="md:w-7 md:h-7" /></a>
               <a href="https://www.linkedin.com/in/shubham-kumar-sahu-204167262" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition-all transform hover:scale-110"><FaLinkedin size={24} className="md:w-7 md:h-7" /></a>
