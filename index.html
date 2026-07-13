@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham Kumar Sahu | Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Custom Keyframe Animations matching Framer Motion behavior */
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.35; transform: scale(1.05); }
+        }
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        @keyframes ringOrbitClockwise {
+            from { transform: rotateX(70deg) rotateY(15deg) rotate(0deg); }
+            to { transform: rotateX(70deg) rotateY(15deg) rotate(360deg); }
+        }
+        @keyframes ringOrbitCounter {
+            from { transform: rotateX(50deg) rotateY(-20deg) rotate(0deg); }
+            to { transform: rotateX(50deg) rotateY(-20deg) rotate(-360deg); }
+        }
+        .animate-pulse-glow { animation: pulseGlow 4s ease-in-out infinite; }
+        .animate-float-1 { animation: floatIcon 4s ease-in-out infinite 0.2s; }
+        .animate-float-2 { animation: floatIcon 4s ease-in-out infinite 0.4s; }
+        .animate-float-3 { animation: floatIcon 4s ease-in-out infinite 0.6s; }
+        .animate-float-4 { animation: floatIcon 4s ease-in-out infinite 0.8s; }
+        .animate-float-5 { animation: floatIcon 4s ease-in-out infinite 1.0s; }
+        .animate-float-6 { animation: floatIcon 4s ease-in-out infinite 1.2s; }
+        .orbit-ring-1 { animation: ringOrbitClockwise 15s linear infinite; }
+        .orbit-ring-2 { animation: ringOrbitCounter 25s linear infinite; }
+    </style>
+</head>
+<body class="bg-[#030712] text-gray-300 font-sans antialiased selection:bg-blue-600 selection:text-white">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-[#0f172a]/90 backdrop-blur-xl border-b border-white/5">
+        <div class="w-full px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo / Name -->
+            <div class="flex items-center gap-2">
+                <div class="h-10 w-10 rounded-full flex items-center justify-center overflow-hidden shadow-lg shadow-blue-500/20">
+                    <!-- Update image source path dynamically if needed -->
+                    <img src="./assets/logo.gif" alt="Logo" class="h-full w-full object-cover onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=80'"" />
+                </div>
+                <h1 class="text-xl font-bold tracking-tight text-white">
+                    Shubham <span class="text-blue-500">Kumar Sahu</span>
+                </h1>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center gap-8 text-gray-400 text-sm font-medium">
+                <a href="#skills" class="hover:text-white transition-colors relative group py-1">
+                    Skills
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#experience" class="hover:text-white transition-colors relative group py-1">
+                    Experience
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#projects" class="hover:text-white transition-colors relative group py-1">
+                    Projects
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="hover:text-white transition-colors relative group py-1">
+                    Contact
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full"></span>
+                </a>
+            </div>
+
+            <!-- Desktop Actions -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="julyresume2026.pdf" download="julyresume2026.pdf" target="_blank" class="text-gray-300 hover:text-white px-4 py-2 text-sm font-bold transition-all flex items-center gap-2">
+                    <i class="fa-regular fa-file-lines text-base"></i> Resume
+                </a>
+                <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-blue-700 transition-all flex items-center gap-2 shadow-lg shadow-blue-600/20 active:scale-95 transform">
+                    Hire Me <i class="fa-regular fa-paper-plane text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="text-white p-2 focus:outline-none" aria-label="Toggle Menu">
+                    <i id="menu-icon" class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-[#0f172a]/95 backdrop-blur-2xl border-b border-white/10 transition-all duration-300 ease-in-out">
+            <div class="px-5 py-7 flex flex-col gap-5 shadow-2xl">
+                <a href="#skills" class="mobile-link flex items-center gap-4 text-gray-300 text-base font-semibold hover:text-blue-400 transition-colors p-2 rounded-lg hover:bg-white/5">
+                    <span class="text-blue-500 bg-blue-500/10 p-2 rounded-lg"><i class="fa-solid fa-code w-5 text-center"></i></span> Skills
+                </a>
+                <a href="#experience" class="mobile-link flex items-center gap-4 text-gray-300 text-base font-semibold hover:text-blue-400 transition-colors p-2 rounded-lg hover:bg-white/5">
+                    <span class="text-blue-500 bg-blue-500/10 p-2 rounded-lg"><i class="fa-solid fa-briefcase w-5 text-center"></i></span> Experience
+                </a>
+                <a href="#projects" class="mobile-link flex items-center gap-4 text-gray-300 text-base font-semibold hover:text-blue-400 transition-colors p-2 rounded-lg hover:bg-white/5">
+                    <span class="text-blue-500 bg-blue-500/10 p-2 rounded-lg"><i class="fa-solid fa-folder-open w-5 text-center"></i></span> Projects
+                </a>
+                <a href="#contact" class="mobile-link flex items-center gap-4 text-gray-300 text-base font-semibold hover:text-blue-400 transition-colors p-2 rounded-lg hover:bg-white/5">
+                    <span class="text-blue-500 bg-blue-500/10 p-2 rounded-lg"><i class="fa-regular fa-envelope w-5 text-center"></i></span> Contact
+                </a>
+                
+                <div class="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-2"></div>
+                
+                <a href="julyresume2026.pdf" download="julyresume2026.pdf" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-all shadow-lg shadow-blue-600/20">
+                    <i class="fa-regular fa-file-lines text-lg"></i> Download Resume
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden bg-[#030712]">
+        <!-- Gradient Mesh Backdrop -->
+        <div class="absolute inset-0 -z-10 opacity-25 pointer-events-none">
+            <div class="absolute top-[10%] left-[5%] w-48 h-48 md:w-80 md:h-80 bg-blue-600 rounded-full blur-[80px] md:blur-[130px]"></div>
+            <div class="absolute bottom-[10%] right-[5%] w-48 h-48 md:w-80 md:h-80 bg-emerald-500 rounded-full blur-[80px] md:blur-[130px]"></div>
+        </div>
+
+        <div class="w-full max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
+            
+            <!-- Hero Left Info -->
+            <div class="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 md:space-y-8 z-20">
+                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black uppercase tracking-[0.2em] shadow-lg shadow-blue-500/5">
+                    <i class="fa-solid fa-microchip text-sm animate-pulse text-blue-400"></i>
+                    <span class="truncate">GATE 2026 QUALIFIED | SCORE: 468</span>
+                </div>
+
+                <h1 class="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter text-white leading-[0.9] md:leading-[0.85]">
+                    MERN <br class="hidden sm:block" />
+                    <span class="text-blue-600">STACK</span> <br />
+                    <span class="text-white/10 uppercase">Dev.</span>
+                </h1>
+
+                <p class="text-gray-400 text-sm sm:text-base md:text-xl max-w-md leading-relaxed font-medium px-2 sm:px-0">
+                    Building high-performance web apps with <span class="text-white font-bold">React & Node.js</span>. Algorithm enthusiast.
+                </p>
+
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-5 w-full">
+                    <a href="#projects" class="w-full sm:w-auto">
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 md:px-10 md:py-4 rounded-full font-bold transition-all flex items-center justify-center gap-3 shadow-xl active:scale-95 group text-sm md:text-base transform">
+                            My Projects 
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1.5 transition-transform"></i>
+                        </button>
+                    </a>
+                    <div class="flex items-center gap-6 text-gray-500 pt-2 sm:pt-0">
+                        <a href="https://github.com/Shubhamsahu82299" target="_blank" rel="noreferrer" class="hover:text-white transition-all transform hover:scale-110"><i class="fa-brands fa-github text-2xl md:text-3xl"></i></a>
+                        <a href="https://www.linkedin.com/in/shubham-kumar-sahu-204167262" target="_blank" rel="noreferrer" class="hover:text-blue-500 transition-all transform hover:scale-110"><i class="fa-brands fa-linkedin text-2xl md:text-3xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Right Visualization -->
+            <div class="relative flex items-center justify-center mt-6 md:mt-20 px-4">
+                <!-- Outer Space Orbits -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none scale-75 sm:scale-90 md:scale-100">
+                    <div class="absolute w-[260px] h-[340px] md:w-[320px] md:h-[400px] border-2 border-blue-500/20 rounded-[100%] shadow-[0_0_40px_rgba(59,130,246,0.1)] orbit-ring-1"></div>
+                    <div class="absolute w-[280px] h-[300px] md:w-[340px] md:h-[360px] border border-emerald-500/10 rounded-[100%] orbit-ring-2"></div>
+                </div>
+
+                <!-- Centered Main Image Graphic -->
+                <div class="relative z-10 w-full max-w-[280px] sm:max-w-[320px] md:max-w-[520px]">
+                    <div class="absolute inset-0 bg-blue-600/20 blur-[60px] md:blur-[110px] rounded-full -z-10 animate-pulse-glow"></div>
+                    <img src="./assets/IMG20250407172156-Photoroom.png" alt="Shubham Sahu" class="w-full h-auto drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] brightness-110" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500'" />
+                    
+                    <!-- Dynamic Dev Devicons Floating around -->
+                    <div class="absolute top-0 right-4 md:top-15 md:right-14 p-1.5 md:p-3 bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-[12px] md:rounded-[20px] shadow-2xl z-20 hover:scale-110 transition-transform animate-float-1">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-5 h-5 md:w-10 md:h-10" alt="React" />
+                    </div>
+                    <div class="absolute top-1/4 left-0 md:-left-12 p-1.5 md:p-3 bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-[12px] md:rounded-[20px] shadow-2xl z-20 hover:scale-110 transition-transform animate-float-2">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="w-5 h-5 md:w-10 md:h-10" alt="Node" />
+                    </div>
+                    <div class="absolute bottom-10 right-2 md:right-5 md:bottom-20 p-1.5 md:p-3 bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-[12px] md:rounded-[20px] shadow-2xl z-20 hover:scale-110 transition-transform animate-float-3">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-5 h-5 md:w-10 md:h-10" alt="Python" />
+                    </div>
+                    <div class="absolute top-1/2 -right-2 md:-right-2 p-1.5 md:p-3 bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-[12px] md:rounded-[20px] shadow-2xl z-20 hover:scale-110 transition-transform animate-float-4">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="w-5 h-5 md:w-10 md:h-10" alt="Java" />
+                    </div>
+                    <div class="absolute bottom-1/4 left-0 md:-left-4 p-1.5 md:p-3 bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-[12px] md:rounded-[20px] shadow-2xl z-20 hover:scale-110 transition-transform animate-float-5">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="w-5 h-5 md:w-10 md:h-10" alt="PHP" />
+                    </div>
+                    <div class="absolute top-[-20px] left-1/4 md:top-15 p-1.5 md:p-3 bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-[12px] md:rounded-[20px] shadow-2xl z-20 hover:scale-110 transition-transform animate-float-6">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="w-5 h-5 md:w-10 md:h-10" alt="C++" />
+                    </div>
+                </div>
+
+                <!-- Floating Availability Status Badge -->
+                <div class="absolute bottom-[-30px] md:bottom-[80px] left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[70px] w-max z-30 px-4 py-2 md:px-5 md:py-2.5 rounded-xl md:rounded-2xl bg-emerald-500 text-slate-950 font-black text-[9px] md:text-xs uppercase tracking-widest shadow-2xl animate-bounce">
+                    Available for Hire
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION / OBJECTIVE SECTION -->
+    <section class="py-12 md:py-24 bg-[#030712] px-4 md:px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 border-l-4 border-blue-600 pl-6">
+                <h2 class="text-3xl md:text-5xl font-black text-white tracking-tighter mb-4 uppercase">
+                    My <span class="text-blue-600">Mission.</span>
+                </h2>
+                <p class="text-gray-500 max-w-md font-medium text-sm md:text-base leading-relaxed">
+                    Architecting scalable systems and solving complex engineering challenges through a logic-first approach.
+                </p>
+            </div>
+
+            <div class="relative p-6 md:p-12 bg-[#0a0f1d] border border-white/5 rounded-[32px] shadow-2xl shadow-black/30 overflow-hidden group">
+                <div class="absolute -top-10 -right-10 w-40 h-40 md:w-60 md:h-60 bg-blue-600/10 rounded-full blur-[80px] md:blur-[100px] -z-10 transition-opacity duration-500 group-hover:opacity-15"></div>
+                
+                <div class="relative z-10 space-y-8">
+                    <p class="text-lg md:text-2xl lg:text-3xl text-white font-bold leading-snug md:leading-tight tracking-tight">
+                        "Focused on architecting <span class="text-blue-500">scalable MERN systems</span> where clean code meets efficient <span class="text-emerald-400 italic font-mono">Algorithms</span>. Driven by the challenge of transforming complex backends into seamless, <span class="text-white border-b-2 border-blue-500/30">high-performance</span> user experiences."
+                    </p>
+
+                    <div class="grid grid-cols-1 md:flex md:flex-wrap gap-6 md:gap-10 pt-8 border-t border-white/5">
+                        <div class="group/item">
+                            <p class="text-gray-500 text-[10px] uppercase tracking-[0.3em] mb-2 group-hover/item:text-blue-500 transition-colors">Core Tech</p>
+                            <p class="text-gray-300 font-bold text-sm md:text-lg font-mono tracking-tighter md:tracking-normal">MongoDB • Express • React • Node</p>
+                        </div>
+                        <div class="group/item">
+                            <p class="text-gray-500 text-[10px] uppercase tracking-[0.3em] mb-2 group-hover/item:text-emerald-500 transition-colors">Engineering</p>
+                            <p class="text-gray-300 font-bold text-sm md:text-lg tracking-tight">DSA & System Design</p>
+                        </div>
+                        <div class="md:ml-auto">
+                            <div class="flex flex-col items-start md:items-end">
+                                <p class="text-gray-500 text-[9px] md:text-[10px] uppercase tracking-[0.3em] mb-2 italic">Academic Achievement</p>
+                                <div class="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-blue-400 font-black text-[10px] md:text-xs">
+                                    GATE '26 Qualified
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-16 md:py-24 bg-[#030712] px-4 md:px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-12 border-l-4 border-blue-600 pl-5">
+                <h2 class="text-3xl md:text-5xl font-black text-white tracking-tighter mb-3 uppercase">
+                    Technical <span class="text-blue-600">Arsenal.</span>
+                </h2>
+                <p class="text-gray-500 max-w-md font-medium text-sm md:text-base leading-relaxed">
+                    Bridging the gap between low-level logic and high-level scalable architectures.
+                </p>
+            </div>
+
+            <!-- Skills List Grid Structure -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+                <!-- Card 1 -->
+                <div class="relative p-5 md:p-6 bg-[#0a0f1d] border border-white/5 rounded-[24px] overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                    <div class="absolute -top-12 -right-12 w-24 h-24 bg-blue-500 opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity"></div>
+                    <div class="relative z-10 space-y-4">
+                        <div class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl text-blue-500">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white tracking-tight">Programming</h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="skill-tag">Java</span><span class="skill-tag">Python</span><span class="skill-tag">C</span><span class="skill-tag">C++</span><span class="skill-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="relative p-5 md:p-6 bg-[#0a0f1d] border border-white/5 rounded-[24px] overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                    <div class="absolute -top-12 -right-12 w-24 h-24 bg-emerald-500 opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity"></div>
+                    <div class="relative z-10 space-y-4">
+                        <div class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl text-emerald-500">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white tracking-tight">Web Dev</h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="skill-tag">React.js</span><span class="skill-tag">Node.js</span><span class="skill-tag">PHP</span><span class="skill-tag">Tailwind</span><span class="skill-tag">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="relative p-5 md:p-6 bg-[#0a0f1d] border border-white/5 rounded-[24px] overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                    <div class="absolute -top-12 -right-12 w-24 h-24 bg-purple-500 opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity"></div>
+                    <div class="relative z-10 space-y-4">
+                        <div class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl text-purple-500">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white tracking-tight">Databases</h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="skill-tag">MongoDB</span><span class="skill-tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="relative p-5 md:p-6 bg-[#0a0f1d] border border-white/5 rounded-[24px] overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                    <div class="absolute -top-12 -right-12 w-24 h-24 bg-orange-500 opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity"></div>
+                    <div class="relative z-10 space-y-4">
+                        <div class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl text-orange-500">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white tracking-tight">Tools & Others</h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="skill-tag">Git</span><span class="skill-tag">GitHub</span><span class="skill-tag">VS Code</span><span class="skill-tag">IoT</span><span class="skill-tag">ML Basics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monochrome Logo Ticker Line -->
+            <div class="mt-16 py-8 border-t border-white/5 flex flex-wrap justify-center gap-6 md:gap-10 opacity-20 grayscale hover:grayscale-0 transition-all duration-700 text-3xl text-gray-400">
+                <i class="fa-brands fa-react hover:text-[#61DAFB] transition-colors cursor-pointer"></i>
+                <i class="fa-brands fa-node-js hover:text-[#339933] transition-colors cursor-pointer"></i>
+                <i class="fa-solid fa-database hover:text-[#47A248] transition-colors cursor-pointer"></i> <!-- MongoDB Rep -->
+                <i class="fa-brands fa-java hover:text-[#007396] transition-colors cursor-pointer"></i>
+                <i class="fa-brands fa-python hover:text-[#3776AB] transition-colors cursor-pointer"></i>
+                <i class="fa-brands fa-php hover:text-[#777BB4] transition-colors cursor-pointer"></i>
+                <i class="fa-brands fa-js hover:text-[#F7DF1E] transition-colors cursor-pointer"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="py-20 md:py-28 bg-[#030712] px-4 md:px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-12 border-l-4 border-blue-600 pl-4 md:pl-8 text-left">
+                <h2 class="text-3xl md:text-5xl font-black text-white tracking-tighter mb-4 uppercase">
+                    Professional <span class="text-blue-600">Journey.</span>
+                </h2>
+                <p class="text-gray-400 max-w-xl font-medium text-sm md:text-base leading-relaxed">
+                    Hands-on expertise gained through high-impact internships in Machine Learning and Full-Stack Development.
+                </p>
+            </div>
+
+            <div class="mt-12 md:mt-16 md:pr-10 lg:pr-20 space-y-0">
+                
+                <!-- Experience Card 1 -->
+                <div class="relative pl-6 md:pl-10 pb-10 group">
+                    <div class="absolute left-[9px] md:left-[19px] top-0 h-full w-[2px] bg-white/5"></div>
+                    <div class="absolute left-0 md:left-2 top-0 w-4.5 h-4.5 md:w-6 md:h-6 rounded-full border-2 md:border-4 border-[#030712] flex items-center justify-center z-10 bg-purple-500">
+                        <div class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div>
+                    </div>
+                    <div class="bg-[#0a0f1d] border border-white/5 p-5 md:p-8 rounded-[20px] md:rounded-[32px] hover:border-blue-500/30 transition-all shadow-xl text-left">
+                        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h3 class="text-lg md:text-2xl font-bold text-white flex items-center gap-2 flex-wrap">
+                                    <span class="text-purple-500"><i class="fa-solid fa-brain"></i></span>
+                                    <span>Machine Learning Intern</span>
+                                </h3>
+                                <p class="text-blue-500 font-semibold text-sm md:text-lg mt-1">1stop.ai</p>
+                            </div>
+                            <a href="./Shubham_Aug_2024_internship_53992.pdf" download class="flex items-center gap-2 px-4 py-2 bg-blue-600/10 border border-blue-500/20 rounded-lg text-blue-400 text-xs md:text-sm font-bold hover:bg-blue-600 hover:text-white transition-all w-max active:scale-95 shadow-lg transform">
+                                <i class="fa-solid fa-download"></i> Certificate
+                            </a>
+                        </div>
+                        <p class="text-[10px] md:text-xs text-gray-500 font-mono mb-4 inline-block px-2 py-1 bg-white/5 rounded-md tracking-wider border border-white/5">
+                            Aug 2024 – Sep 2024
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex gap-3 text-xs md:text-base text-gray-400 leading-relaxed">
+                                <span class="text-blue-600 mt-1.5">•</span>
+                                <span>Developed a Diabetes Prediction Model using ML techniques to analyze medical datasets with high accuracy.</span>
+                            </li>
+                            <li class="flex gap-3 text-xs md:text-base text-gray-400 leading-relaxed">
+                                <span class="text-blue-600 mt-1.5">•</span>
+                                <span>Focused on end-to-end Machine Learning pipelines, including data preprocessing and model fine-tuning.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience Card 2 -->
+                <div class="relative pl-6 md:pl-10 pb-10 group">
+                    <div class="absolute left-[9px] md:left-[19px] top-0 h-full w-[2px] bg-white/5 group-last:h-0"></div>
+                    <div class="absolute left-0 md:left-2 top-0 w-4.5 h-4.5 md:w-6 md:h-6 rounded-full border-2 md:border-4 border-[#030712] flex items-center justify-center z-10 bg-emerald-500">
+                        <div class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div>
+                    </div>
+                    <div class="bg-[#0a0f1d] border border-white/5 p-5 md:p-8 rounded-[20px] md:rounded-[32px] hover:border-blue-500/30 transition-all shadow-xl text-left">
+                        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h3 class="text-lg md:text-2xl font-bold text-white flex items-center gap-2 flex-wrap">
+                                    <span class="text-emerald-500"><i class="fa-solid fa-code"></i></span>
+                                    <span>Web Development Intern</span>
+                                </h3>
+                                <p class="text-blue-500 font-semibold text-sm md:text-lg mt-1">Acmegrade</p>
+                            </div>
+                            <a href="./Shubham_Kumar_Sahu_Internship_Completion.pdf" download class="flex items-center gap-2 px-4 py-2 bg-blue-600/10 border border-blue-500/20 rounded-lg text-blue-400 text-xs md:text-sm font-bold hover:bg-blue-600 hover:text-white transition-all w-max active:scale-95 shadow-lg transform">
+                                <i class="fa-solid fa-download"></i> Certificate
+                            </a>
+                        </div>
+                        <p class="text-[10px] md:text-xs text-gray-500 font-mono mb-4 inline-block px-2 py-1 bg-white/5 rounded-md tracking-wider border border-white/5">
+                            Aug 2023 – Oct 2023
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex gap-3 text-xs md:text-base text-gray-400 leading-relaxed">
+                                <span class="text-blue-600 mt-1.5">•</span>
+                                <span>Architected a functional e-commerce web application utilizing PHP and MySQL for robust backend performance.</span>
+                            </li>
+                            <li class="flex gap-3 text-xs md:text-base text-gray-400 line-relaxed">
+                                <span class="text-blue-600 mt-1.5">•</span>
+                                <span>Designed and implemented high-performance, responsive web interfaces using HTML5, CSS3, and JavaScript.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WORK ARCHIVE (PROJECTS) SECTION -->
+    <section id="projects" class="py-16 md:py-24 bg-[#030712] px-4 md:px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 border-l-4 border-blue-600 pl-6">
+                <h2 class="text-3xl md:text-5xl font-black text-white tracking-tighter mb-3 uppercase">
+                    Work <span class="text-blue-600">Archive.</span>
+                </h2>
+                <p class="text-gray-500 max-w-md font-medium text-sm md:text-base leading-relaxed">
+                    A selection of projects ranging from complex web systems to creative UI experiments.
+                </p>
+            </div>
+
+            <!-- Featured Dashboard Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Project 1 -->
+                <div class="group relative bg-[#0a0f1d] border border-white/5 rounded-[28px] overflow-hidden hover:-translate-y-2 transition-all duration-500">
+                    <div class="h-40 bg-gradient-to-br from-blue-600/10 to-emerald-500/10 flex items-center justify-center relative overflow-hidden">
+                        <i class="fa-solid fa-code text-5xl text-white/5 group-hover:scale-125 group-hover:text-blue-500/20 transition-all duration-700"></i>
+                        <div class="absolute inset-0 bg-[#030712]/60 opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex items-center justify-center gap-5">
+                            <a href="https://github.com/Shubhamsahu82299/diabetes-prediction-frontend" target="_blank" class="p-3 bg-white text-black rounded-full hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110"><i class="fa-brands fa-github text-lg"></i></a>
+                            <a href="https://diabetes-prediction-frontend-roan.vercel.app/" target="_blank" class="p-3 bg-white text-black rounded-full hover:bg-emerald-500 hover:text-white transition-all transform hover:scale-110"><i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">Python</span><span class="tech-badge">Machine Learning</span><span class="tech-badge">React.js</span><span class="tech-badge">Tailwind</span>
+                        </div>
+                        <h3 class="text-xl font-black text-white group-hover:text-blue-500 transition-colors">Diabetes Prediction</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed min-h-[45px]">Machine Learning powered web system built to predict diabetes vulnerability using analytical Python models and an interactive web interface.</p>
+                        <div class="flex md:hidden gap-5 pt-2 border-t border-white/5">
+                            <a href="https://github.com/Shubhamsahu82299/diabetes-prediction-frontend" target="_blank" class="text-blue-500 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">Github <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>
+                            <a href="https://diabetes-prediction-frontend-roan.vercel.app/" target="_blank" class="text-emerald-500 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">Visit Site <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group relative bg-[#0a0f1d] border border-white/5 rounded-[28px] overflow-hidden hover:-translate-y-2 transition-all duration-500">
+                    <div class="h-40 bg-gradient-to-br from-blue-600/10 to-emerald-500/10 flex items-center justify-center relative overflow-hidden">
+                        <i class="fa-solid fa-code text-5xl text-white/5 group-hover:scale-125 group-hover:text-blue-500/20 transition-all duration-700"></i>
+                        <div class="absolute inset-0 bg-[#030712]/60 opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex items-center justify-center gap-5">
+                            <a href="https://github.com/Shubhamsahu82299/MedEcosystem" target="_blank" class="p-3 bg-white text-black rounded-full hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110"><i class="fa-brands fa-github text-lg"></i></a>
+                            <a href="https://med-ecosystem.vercel.app/" target="_blank" class="p-3 bg-white text-black rounded-full hover:bg-emerald-500 hover:text-white transition-all transform hover:scale-110"><i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">PHP</span><span class="tech-badge">MySQL</span><span class="tech-badge">JavaScript</span><span class="tech-badge">CSS</span>
+                        </div>
+                        <h3 class="text-xl font-black text-white group-hover:text-blue-500 transition-colors">MedEcosystem</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed min-h-[45px]">A comprehensive PHP full-stack medical ecosystem designed for healthcare management, data handling, and clean user dashboards.</p>
+                        <div class="flex md:hidden gap-5 pt-2 border-t border-white/5">
+                            <a href="https://github.com/Shubhamsahu82299/MedEcosystem" target="_blank" class="text-blue-500 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">Github <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>
+                            <a href="https://med-ecosystem.vercel.app/" target="_blank" class="text-emerald-500 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">Visit Site <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group relative bg-[#0a0f1d] border border-white/5 rounded-[28px] overflow-hidden hover:-translate-y-2 transition-all duration-500">
+                    <div class="h-40 bg-gradient-to-br from-blue-600/10 to-emerald-500/10 flex items-center justify-center relative overflow-hidden">
+                        <i class="fa-solid fa-code text-5xl text-white/5 group-hover:scale-125 group-hover:text-blue-500/20 transition-all duration-700"></i>
+                        <div class="absolute inset-0 bg-[#030712]/60 opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex items-center justify-center gap-5">
+                            <a href="https://github.com/Shubhamsahu82299/ApnaBazaar" target="_blank" class="p-3 bg-white text-black rounded-full hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110"><i class="fa-brands fa-github text-lg"></i></a>
+                            <a href="https://apna-bazaar-lake.vercel.app/" target="_blank" class="p-3 bg-white text-black rounded-full hover:bg-emerald-500 hover:text-white transition-all transform hover:scale-110"><i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">PHP</span><span class="tech-badge">MySQL</span><span class="tech-badge">Tailwind CSS</span><span class="tech-badge">JavaScript</span>
+                        </div>
+                        <h3 class="text-xl font-black text-white group-hover:text-blue-500 transition-colors">Apna Bazaar</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed min-h-[45px]">Full-featured e-commerce platform built on a robust PHP backend, handling dynamic product listings, user sessions, and secure operations.</p>
+                        <div class="flex md:hidden gap-5 pt-2 border-t border-white/5">
+                            <a href="https://github.com/Shubhamsahu82299/ApnaBazaar" target="_blank" class="text-blue-500 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">Github <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>
+                            <a href="https://apna-bazaar-lake.vercel.app/" target="_blank" class="text-emerald-500 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">Visit Site <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="group relative bg-[#0a0f1d] border border-white/5 rounded-[28px] overflow-hidden hover:-translate-y-2 transition-all duration-500">
+                    <div class="h-40 bg-gradient-to-br from-blue-600/10 to-emerald-500/10 flex items-center justify-center relative overflow-hidden">
+                        <i class="fa-solid fa-code text-5xl text-white/5 group-hover:scale-125 group-hover:text-blue-500/20 transition-all duration-700"></i>
+                        <div class="absolute inset-0 bg-[#030712]/60 opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex items-center justify-center gap-5">
+                            <a href="https://github.com/Shubhamsahu82299/weather-app" target="_blank" class="p-3 bg-white text-black rounded-full hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110"><i class="fa-brands fa-github text-lg"></i></a>
+                            <a href="https://shubhamsahu82299.github.io/weather-app/" target="_blank" class="p-3 bg-white text-black rounded-full hover:bg-emerald-500 hover:text-white transition-all transform hover:scale-110"><i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">React.js</span><span class="tech-badge">REST API</span><span class="tech-badge">Tailwind</span>
+                        </div>
+                        <h3 class="text-xl font-black text-white group-hover:text-blue-500 transition-colors">Weather App</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed min-h-[45px]">Real-time weather dashboard using OpenWeather API. Features dynamic backgrounds based on climate conditions.</p>
+                        <div class="flex md:hidden gap-5 pt-2 border-t border-white/5">
+                            <a href="https://github.com/Shubhamsahu82299/weather-app" target="_blank" class="text-blue-500 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">Github <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>
+                            <a href="https://shubhamsahu82299.github.io/weather-app/" target="_blank" class="text-emerald-500 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">Visit Site <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="group relative bg-[#0a0f1d] border border-white/5 rounded-[28px] overflow-hidden hover:-translate-y-2 transition-all duration-500">
+                    <div class="h-40 bg-gradient-to-br from-blue-600/10 to-emerald-500/10 flex items-center justify-center relative overflow-hidden">
+                        <i class="fa-solid fa-code text-5xl text-white/5 group-hover:scale-125 group-hover:text-blue-500/20 transition-all duration-700"></i>
+                        <div class="absolute inset-0 bg-[#030712]/60 opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex items-center justify-center gap-5">
+                            <a href="https://github.com/Shubhamsahu82299/easy-learning-frontend" target="_blank" class="p-3 bg-white text-black rounded-full hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110"><i class="fa-brands fa-github text-lg"></i></a>
+                            <a href="https://shubhamsahu82299.github.io/easy-learning-frontend/" target="_blank" class="p-3 bg-white text-black rounded-full hover:bg-emerald-500 hover:text-white transition-all transform hover:scale-110"><i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">React.js</span><span class="tech-badge">Framer Motion</span><span class="tech-badge">Tailwind</span>
+                        </div>
+                        <h3 class="text-xl font-black text-white group-hover:text-blue-500 transition-colors">Easy Learning</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed min-h-[45px]">Educational frontend platform with smooth Framer Motion transitions and course management UI.</p>
+                        <div class="flex md:hidden gap-5 pt-2 border-t border-white/5">
+                            <a href="https://github.com/Shubhamsahu82299/easy-learning-frontend" target="_blank" class="text-blue-500 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">Github <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>
+                            <a href="https://shubhamsahu82299.github.io/easy-learning-frontend/" target="_blank" class="text-emerald-500 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">Visit Site <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="group relative bg-[#0a0f1d] border border-white/5 rounded-[28px] overflow-hidden hover:-translate-y-2 transition-all duration-500">
+                    <div class="h-40 bg-gradient-to-br from-blue-600/10 to-emerald-500/10 flex items-center justify-center relative overflow-hidden">
+                        <i class="fa-solid fa-code text-5xl text-white/5 group-hover:scale-125 group-hover:text-blue-500/20 transition-all duration-700"></i>
+                        <div class="absolute inset-0 bg-[#030712]/60 opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex items-center justify-center gap-5">
+                            <a href="https://github.com/Shubhamsahu82299/chat-app" target="_blank" class="p-3 bg-white text-black rounded-full hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110"><i class="fa-brands fa-github text-lg"></i></a>
+                            <a href="https://chat-app-two-psi-37.vercel.app/" target="_blank" class="p-3 bg-white text-black rounded-full hover:bg-emerald-500 hover:text-white transition-all transform hover:scale-110"><i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">React.js</span><span class="tech-badge">MongoDB</span><span class="tech-badge">Socket</span>
+                        </div>
+                        <h3 class="text-xl font-black text-white group-hover:text-blue-500 transition-colors">Real-time Chat</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed min-h-[45px]">Messaging application focusing on instant UI updates and responsive chat layouts.</p>
+                        <div class="flex md:hidden gap-5 pt-2 border-t border-white/5">
+                            <a href="https://github.com/Shubhamsahu82299/chat-app" target="_blank" class="text-blue-500 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">Github <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>
+                            <a href="https://chat-app-two-psi-37.vercel.app/" target="_blank" class="text-emerald-500 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">Visit Site <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- More Noteworthy Experiments -->
+            <div class="mt-20">
+                <h3 class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.4em] mb-8 flex items-center gap-3 italic">
+                    <i class="fa-regular fa-folder text-blue-600 text-sm"></i> More Noteworthy Experiments
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    
+                    <a href="https://github.com/Shubhamsahu82299/CRUD-REACT" target="_blank" class="p-5 bg-[#0a0f1d] border border-white/5 rounded-2xl flex items-center justify-between group hover:border-blue-500/30 transition-all hover:bg-[#0d142b]">
+                        <div>
+                            <p class="text-gray-200 font-bold text-sm mb-1">CRUD-REACT</p>
+                            <p class="text-blue-500 text-[9px] font-mono uppercase">React/State</p>
+                        </div>
+                        <i class="fa-brands fa-github text-lg text-gray-600 group-hover:text-white transition-colors"></i>
+                    </a>
+
+                    <a href="https://shubhamsahu82299.github.io/password-generator/" target="_blank" class="p-5 bg-[#0a0f1d] border border-white/5 rounded-2xl flex items-center justify-between group hover:border-blue-500/30 transition-all hover:bg-[#0d142b]">
+                        <div>
+                            <p class="text-gray-200 font-bold text-sm mb-1">Password Generator</p>
+                            <p class="text-blue-500 text-[9px] font-mono uppercase">JS Logic</p>
+                        </div>
+                        <i class="fa-brands fa-github text-lg text-gray-600 group-hover:text-white transition-colors"></i>
+                    </a>
+
+                    <a href="https://shubhamsahu82299.github.io/todolist-react/" target="_blank" class="p-5 bg-[#0a0f1d] border border-white/5 rounded-2xl flex items-center justify-between group hover:border-blue-500/30 transition-all hover:bg-[#0d142b]">
+                        <div>
+                            <p class="text-gray-200 font-bold text-sm mb-1">TodoList React</p>
+                            <p class="text-blue-500 text-[9px] font-mono uppercase">React Hooks</p>
+                        </div>
+                        <i class="fa-brands fa-github text-lg text-gray-600 group-hover:text-white transition-colors"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 md:py-32 bg-[#030712] px-4 md:px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 border-l-4 border-blue-600 pl-6">
+                <h2 class="text-3xl md:text-5xl font-black text-white tracking-tighter mb-4 uppercase">
+                    Get in <span class="text-blue-600">Touch.</span>
+                </h2>
+                <p class="text-gray-500 max-w-md font-medium text-sm md:text-base leading-relaxed">
+                    I'm currently available for full-time roles and freelance opportunities. Let's build something extraordinary together.
+                </p>
+            </div>
+
+            <!-- Connect Info Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                
+                <a href="mailto:shubhamsahu82299@gmail.com" target="_blank" class="flex flex-col p-6 md:p-10 bg-[#0a0f1d] border border-white/5 rounded-[32px] hover:border-blue-500/30 transition-all group relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-600/5 rounded-full blur-3xl group-hover:bg-blue-600/10 transition-all"></div>
+                    <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-6 text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <p class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mb-2 font-bold">Email Address</p>
+                    <p class="text-white font-black text-lg md:text-2xl tracking-tight break-words">shubhamsahu82299@gmail.com</p>
+                    <div class="mt-6 flex items-center gap-2 text-blue-500 font-bold text-xs uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-all">
+                        Connect Now <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </a>
+
+                <a href="tel:+918668464275" target="_blank" class="flex flex-col p-6 md:p-10 bg-[#0a0f1d] border border-white/5 rounded-[32px] hover:border-blue-500/30 transition-all group relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-600/5 rounded-full blur-3xl group-hover:bg-blue-600/10 transition-all"></div>
+                    <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-6 text-emerald-500 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-phone-flip text-xl"></i>
+                    </div>
+                    <p class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mb-2 font-bold">Phone Number</p>
+                    <p class="text-white font-black text-lg md:text-2xl tracking-tight break-words">+91 8668464275</p>
+                    <div class="mt-6 flex items-center gap-2 text-blue-500 font-bold text-xs uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-all">
+                        Connect Now <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/shubham-kumar-sahu-204167262" target="_blank" class="flex flex-col p-6 md:p-10 bg-[#0a0f1d] border border-white/5 rounded-[32px] hover:border-blue-500/30 transition-all group relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-600/5 rounded-full blur-3xl group-hover:bg-blue-600/10 transition-all"></div>
+                    <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-6 text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                    <p class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mb-2 font-bold">LinkedIn Profile</p>
+                    <p class="text-white font-black text-lg md:text-2xl tracking-tight break-words">Shubham Kumar Sahu</p>
+                    <div class="mt-6 flex items-center gap-2 text-blue-500 font-bold text-xs uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-all">
+                        Connect Now <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </a>
+
+                <a href="#" class="flex flex-col p-6 md:p-10 bg-[#0a0f1d] border border-white/5 rounded-[32px] hover:border-blue-500/30 transition-all group relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-600/5 rounded-full blur-3xl group-hover:bg-blue-600/10 transition-all"></div>
+                    <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-6 text-rose-500 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <p class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gray-500 mb-2 font-bold">Current Location</p>
+                    <p class="text-white font-black text-lg md:text-2xl tracking-tight break-words">Bhusawal, Maharashtra</p>
+                    <div class="mt-6 flex items-center gap-2 text-blue-500 font-bold text-xs uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-all">
+                        Connect Now <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- FOOTER BAR -->
+            <div class="mt-32 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="space-y-2 text-center md:text-left">
+                    <p class="text-white font-black text-xl tracking-tighter uppercase">Shubham <span class="text-blue-600">Sahu.</span></p>
+                    <p class="text-gray-600 text-xs font-mono uppercase tracking-widest italic">GATE '26 Qualified | MERN Stack Developer</p>
+                </div>
+                
+                <div class="flex gap-8 items-center">
+                    <a href="https://github.com/Shubhamsahu82299" target="_blank" class="text-gray-500 hover:text-white transition-all transform hover:scale-110"><i class="fa-brands fa-github text-2xl"></i></a>
+                    <a href="https://www.linkedin.com/in/shubham-kumar-sahu-204167262" target="_blank" class="text-gray-500 hover:text-blue-500 transition-all transform hover:scale-110"><i class="fa-brands fa-linkedin text-2xl"></i></a>
+                </div>
+                
+                <p class="text-gray-700 text-[10px] md:text-xs uppercase tracking-widest font-bold">
+                    © 2026 Crafted with Logic & HTML
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOM REUSABLE STYLES COMPILATION (Helper classes via Tailwind layer utilities logic) -->
+    <style>
+        .skill-tag {
+            @apply px-2.5 py-1 bg-white/5 border border-white/5 rounded-lg text-[9px] md:text-[10px] text-gray-400 font-medium hover:border-blue-500/30 hover:text-white transition-all cursor-default;
+        }
+        .tech-badge {
+            @apply text-[9px] font-bold uppercase tracking-widest text-blue-400 bg-blue-400/5 border border-blue-400/10 px-2 py-0.5 rounded;
+        }
+    </style>
+
+    <!-- JAVASCRIPT: Mobile Navigation Drawer controller logic -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            // Toggle hamburger icon between open and close shapes
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-2xl';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-2xl';
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        
+        // Navigation auto close layout event whenever user picks up any specific landing link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
