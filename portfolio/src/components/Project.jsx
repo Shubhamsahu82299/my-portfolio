@@ -53,6 +53,27 @@ const ProjectCard = ({ title, description, tech, github, demo }) => (
 const Projects = () => {
   const mainProjects = [
     {
+      title: "Diabetes Prediction",
+      description: "Machine Learning powered web system built to predict diabetes vulnerability using analytical Python models and an interactive web interface.",
+      tech: ["Python", "Machine Learning", "React.js", "Tailwind"],
+      github: "https://github.com/Shubhamsahu82299/diabetes-prediction-frontend",
+      demo: "https://diabetes-prediction-frontend-roan.vercel.app/"
+    },
+    {
+      title: "MedEcosystem",
+      description: "A comprehensive PHP full-stack medical ecosystem designed for healthcare management, data handling, and clean user dashboards.",
+      tech: ["PHP", "MySQL", "JavaScript", "CSS"],
+      github: "https://github.com/Shubhamsahu82299/MedEcosystem",
+      demo: "https://med-ecosystem.vercel.app/"
+    },
+    {
+      title: "Apna Bazaar",
+      description: "Full-featured e-commerce platform built on a robust PHP backend, handling dynamic product listings, user sessions, and secure operations.",
+      tech: ["PHP", "MySQL", "Tailwind CSS", "JavaScript"],
+      github: "https://github.com/Shubhamsahu82299/ApnaBazaar",
+      demo: "https://apna-bazaar-lake.vercel.app/"
+    },
+    {
       title: "Weather App",
       description: "Real-time weather dashboard using OpenWeather API. Features dynamic backgrounds based on climate conditions.",
       tech: ["React.js", "REST API", "Tailwind"],
@@ -78,8 +99,7 @@ const Projects = () => {
   const otherProjects = [
     { name: "CRUD-REACT", tech: "React/State", link: "https://github.com/Shubhamsahu82299/CRUD-REACT" },
     { name: "Password Generator", tech: "JS Logic", link: "https://shubhamsahu82299.github.io/password-generator/" },
-    { name: "TodoList React", tech: "React Hooks", link: "https://shubhamsahu82299.github.io/todolist-react/" },
-    { name: "E-commerce PHP", tech: "PHP/MySQL", link: "#" }
+    { name: "TodoList React", tech: "React Hooks", link: "https://shubhamsahu82299.github.io/todolist-react/" }
   ];
 
   return (
@@ -91,16 +111,14 @@ const Projects = () => {
           <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-3 uppercase">
             Work <span className="text-blue-600">Archive.</span>
           </h2>
-         {/*  <p className="text-gray-500 max-w-md font-medium text-xs md:text-sm">
-           
-          </p> */}
-           <motion.p 
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ delay: 0.2 }}
-                      className="text-gray-500 max-w-md font-medium text-sm md:text-base leading-relaxed"
-                    >
-                     A selection of projects ranging from complex web systems to creative UI experiments.</motion.p>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-gray-500 max-w-md font-medium text-sm md:text-base leading-relaxed"
+          >
+            A selection of projects ranging from complex web systems to creative UI experiments.
+          </motion.p>
         </div>
 
         {/* Featured Projects Grid */}
