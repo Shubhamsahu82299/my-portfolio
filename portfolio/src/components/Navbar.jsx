@@ -91,7 +91,7 @@ const Navbar = () => {
     
     {/* Mobile Resume Download Button - Bulletproof Path */}
     <a 
-      href={`${import.meta.env.BASE_URL}resume.pdf`} // Ye GitHub Pages par kabhi fail nahi hoga
+      href={`${import.meta.env.BASE_URL}shubhamkumarsahu.pdf`} // Ye GitHub Pages par kabhi fail nahi hoga
       download="Shubham_Sahu_Resume.pdf"
       className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-all shadow-lg shadow-blue-600/20"
     >
