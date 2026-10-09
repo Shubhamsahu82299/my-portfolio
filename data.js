@@ -64,29 +64,33 @@ window.SITE_DATA = {
     achievement: "M.Tech DSAI · GATE '26"
   },
 
-  skills: [
-    {
-      icon: "fa-solid fa-brain",
-      title: "AI & Data Science",
-      tags: ["Python", "Machine Learning", "Deep Learning", "Pandas", "Scikit-Learn", "PyTorch"]
-    },
-    {
-      icon: "fa-solid fa-layer-group",
-      title: "Full-Stack Web Dev",
-      tags: ["React.js", "Node.js", "Express.js", "PHP", "Tailwind CSS", "JavaScript"]
-    },
-    {
-      icon: "fa-solid fa-database",
-      title: "Databases & Cloud",
-      tags: ["MongoDB", "MySQL", "Supabase", "REST APIs"]
-    },
-    {
-      icon: "fa-solid fa-screwdriver-wrench",
-      title: "Core & Tools",
-      tags: ["DSA", "C/C++", "Java", "Git & GitHub", "Vercel", "Linux"]
-    }
-  ],
 
+skills: [
+  {
+    icon: "fa-solid fa-brain",
+    title: "AI & Data Science",
+    tags: ["Python", "Machine Learning", "Deep Learning", "Pandas", "Scikit-Learn", "PyTorch"]
+  },
+  {
+    icon: "fa-solid fa-layer-group",
+    title: "Full-Stack Web Dev",
+    // Added: ASP.NET Core, C#
+    tags: ["ASP.NET Core", "C#", "React.js", "Node.js", "Express.js", "Tailwind CSS", "JavaScript", "PHP"]
+  },
+  {
+    icon: "fa-solid fa-database",
+    title: "Databases & Messaging",
+    // Added: PostgreSQL, RabbitMQ, MassTransit
+    tags: ["PostgreSQL", "Supabase", "RabbitMQ", "MassTransit", "MySQL", "MongoDB", "REST APIs"]
+  },
+  {
+    icon: "fa-solid fa-screwdriver-wrench",
+    title: "DevOps & Core Tools",
+    // Added: Docker, Render
+    tags: ["Docker", "Git & GitHub", "Linux", "Render", "Vercel", "DSA", "Java", "C/C++"]
+  }
+]
+,
   experience: [
     {
       icon: "fa-solid fa-brain",
@@ -113,13 +117,14 @@ window.SITE_DATA = {
   ],
 
   projects: [
-    {
-      title: "Diabetes Prediction",
-      tags: ["Python", "Machine Learning", "React.js", "Tailwind"],
-      desc: "Machine Learning powered web system built to predict diabetes vulnerability using analytical Python models and an interactive web interface.",
-      github: "https://github.com/Shubhamsahu82299/diabetes-prediction-frontend",
-      live: "https://diabetes-prediction-frontend-roan.vercel.app/"
-    },
+     {
+  title: "RedBus Clone – Enterprise Ticketing Platform",
+  tags: ["ASP.NET Core", "React.js", "PostgreSQL", "RabbitMQ", "Tailwind CSS"],
+  desc: "Event-driven distributed bus reservation system featuring real-time seat locking, multi-deck pricing, asynchronous PDF generation via MassTransit/RabbitMQ, and interactive multi-passenger booking.",
+  github: "https://github.com/Shubhamsahu82299/RedBus",
+  live: "https://red-bus-mu.vercel.app/"
+},
+   
     {
       title: "MedEcosystem",
       tags: ["PHP", "MySQL", "JavaScript", "CSS"],
@@ -134,12 +139,19 @@ window.SITE_DATA = {
       github: "https://github.com/Shubhamsahu82299/ApnaBazaar",
       live: "https://apna-bazaar-lake.vercel.app/"
     },
-    {
-      title: "Weather App",
-      tags: ["React.js", "REST API", "Tailwind"],
-      desc: "Real-time weather dashboard using OpenWeather API. Features dynamic backgrounds based on climate conditions.",
-      github: "https://github.com/Shubhamsahu82299/weather-app",
-      live: "https://shubhamsahu82299.github.io/weather-app/"
+  {
+      title: "Diabetes Prediction",
+      tags: ["Python", "Machine Learning", "React.js", "Tailwind"],
+      desc: "Machine Learning powered web system built to predict diabetes vulnerability using analytical Python models and an interactive web interface.",
+      github: "https://github.com/Shubhamsahu82299/diabetes-prediction-frontend",
+      live: "https://diabetes-prediction-frontend-roan.vercel.app/"
+    },
+     {
+      title: "Real-time Chat",
+      tags: ["React.js", "MongoDB", "Socket.io"],
+      desc: "Messaging application focusing on instant UI updates and responsive chat layouts.",
+      github: "https://github.com/Shubhamsahu82299/chat-app",
+      live: "https://chat-app-two-psi-37.vercel.app/"
     },
     {
       title: "Easy Learning",
@@ -147,14 +159,8 @@ window.SITE_DATA = {
       desc: "Educational frontend platform with smooth Framer Motion transitions and course management UI.",
       github: "https://github.com/Shubhamsahu82299/easy-learning-frontend",
       live: "https://shubhamsahu82299.github.io/easy-learning-frontend/"
-    },
-    {
-      title: "Real-time Chat",
-      tags: ["React.js", "MongoDB", "Socket.io"],
-      desc: "Messaging application focusing on instant UI updates and responsive chat layouts.",
-      github: "https://github.com/Shubhamsahu82299/chat-app",
-      live: "https://chat-app-two-psi-37.vercel.app/"
     }
+   
   ],
 
   experiments: [
